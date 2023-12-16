@@ -1,6 +1,6 @@
 import turtle as flag
 
-uzb = flag.Skreen()
+uzb = flag.Screen()
 uzb.setup(1000,600)
 uzb.bgcolor('white')
 
@@ -23,7 +23,7 @@ def write(message,pas,color,font_size):
 
 flag.speed(4)
 flag.color('white')
-flag.genup()
+flag.penup()
 flag.setposition(-500,300)
 flag.pendown()
 
@@ -37,6 +37,8 @@ def main(color):
     flag.forward(width_main)
     flag.right(90)
     flag.forward(hight_main)
+    flag.right(90)
+    flag.forward(width_main)
     flag.right(180)
     flag.end_fill()
 
@@ -50,6 +52,8 @@ def middle(color):
     flag.fillcolor(color)
     flag.begin_fill()
     flag.forward(width_mid)
+    flag.right(90)
+    flag.forward(hight_mid)
     flag.right(90)
     flag.forward(width_mid)
     flag.right(180)
@@ -68,7 +72,7 @@ main("#188637")
 def moon(size):
     flag.color('white')
     flag.right(90)
-    flag.genup()
+    flag.penup()
     flag.goto(-435,202.5)
     flag.pendown()
     flag.fillcolor('white') 
@@ -76,4 +80,53 @@ def moon(size):
     flag.circle(size)
     flag.end_fill()
 
-    flag
+    flag.penup()
+    flag.goto(-435,202.5)
+    flag.fillcolor('#4169E1')
+    flag.begin_fill()
+    flag.circle(size-8)
+    flag.end_fill()
+    flag.left(90)
+
+moon(70)
+
+
+def star(size):
+    flag.penup()
+    flag.goto(-180,255)
+    flag.pendown()
+    for uz in range(21):
+        if uz == 3 :
+            flag.penup()
+            flag.goto(-240,205)
+            flag.pendown()
+        elif uz == 7 :
+            flag.penup()
+            flag.goto(-300,155)
+            flag.pendown()
+
+        flag.fillcolor('white') 
+        flag.begin_fill()
+        for uzb in range(5):
+            flag.circle(size)
+            flag.right(144)
+
+        flag.end_fill()
+        flag.penup()
+        flag.forward(60)
+        flag.pendown()
+
+
+
+star(30)
+flag.hideturtle()
+
+list_color = ["#FFD700","#FF69B4","#ff0000","#8470FF","#8888B00","#6959CD","808000","#FFFF00","#EE9A00"]
+
+for uz in range(50):
+    for u in range(1,9):
+        write('I love Uzbekistan',(-430,20), list_color[u], 40)
+        write('@IT_Creative_Channel',(-370,-100), list_color[u], 40)
+
+
+flag.done()
